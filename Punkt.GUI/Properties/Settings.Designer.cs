@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Punkt.Properties
+namespace Punkt.GUI.Properties
 {
 
 
