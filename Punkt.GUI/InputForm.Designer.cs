@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tbCategory = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbNote = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbCategory = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,11 +43,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgSales = new System.Windows.Forms.DataGridView();
+            this.cCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cHour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cOwner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSales)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -58,13 +66,13 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.tbCategory);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.tbPrice);
             this.splitContainer1.Panel1.Controls.Add(this.label7);
             this.splitContainer1.Panel1.Controls.Add(this.tbNote);
             this.splitContainer1.Panel1.Controls.Add(this.label6);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.tbCategory);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.tbPhone);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
@@ -75,10 +83,28 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.dgSales);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 272;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // tbCategory
+            // 
+            this.tbCategory.FormattingEnabled = true;
+            this.tbCategory.Items.AddRange(new object[] {
+            "M1",
+            "M2",
+            "M3",
+            "N1",
+            "N2",
+            "N3",
+            "O1",
+            "O2",
+            "O3"});
+            this.tbCategory.Location = new System.Drawing.Point(80, 124);
+            this.tbCategory.Name = "tbCategory";
+            this.tbCategory.Size = new System.Drawing.Size(166, 21);
+            this.tbCategory.TabIndex = 14;
             // 
             // button1
             // 
@@ -132,13 +158,6 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Информация за автомобила";
             // 
-            // tbCategory
-            // 
-            this.tbCategory.Location = new System.Drawing.Point(80, 125);
-            this.tbCategory.Name = "tbCategory";
-            this.tbCategory.Size = new System.Drawing.Size(166, 20);
-            this.tbCategory.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -182,10 +201,13 @@
             // 
             // tbNumber
             // 
+            this.tbNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tbNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tbNumber.Location = new System.Drawing.Point(80, 47);
             this.tbNumber.Name = "tbNumber";
             this.tbNumber.Size = new System.Drawing.Size(166, 20);
             this.tbNumber.TabIndex = 1;
+            this.tbNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbNumber_KeyUp);
             // 
             // label1
             // 
@@ -196,14 +218,71 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Рег.Номер";
             // 
-            // dataGridView1
+            // dgSales
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(524, 450);
-            this.dataGridView1.TabIndex = 0;
+            this.dgSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cCreated,
+            this.cHour,
+            this.cNumber,
+            this.cOwner,
+            this.cPhone,
+            this.cNote,
+            this.cCategory,
+            this.cPrice});
+            this.dgSales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSales.Location = new System.Drawing.Point(0, 0);
+            this.dgSales.Name = "dgSales";
+            this.dgSales.Size = new System.Drawing.Size(524, 450);
+            this.dgSales.TabIndex = 0;
+            // 
+            // cCreated
+            // 
+            this.cCreated.HeaderText = "Дата";
+            this.cCreated.Name = "cCreated";
+            this.cCreated.ReadOnly = true;
+            // 
+            // cHour
+            // 
+            this.cHour.HeaderText = "Час";
+            this.cHour.Name = "cHour";
+            this.cHour.ReadOnly = true;
+            // 
+            // cNumber
+            // 
+            this.cNumber.HeaderText = "Рег.Номер";
+            this.cNumber.Name = "cNumber";
+            this.cNumber.ReadOnly = true;
+            // 
+            // cOwner
+            // 
+            this.cOwner.HeaderText = "Собственик";
+            this.cOwner.Name = "cOwner";
+            this.cOwner.ReadOnly = true;
+            // 
+            // cPhone
+            // 
+            this.cPhone.HeaderText = "GSM";
+            this.cPhone.Name = "cPhone";
+            this.cPhone.ReadOnly = true;
+            // 
+            // cNote
+            // 
+            this.cNote.HeaderText = "Бележка";
+            this.cNote.Name = "cNote";
+            this.cNote.ReadOnly = true;
+            // 
+            // cCategory
+            // 
+            this.cCategory.HeaderText = "Категория";
+            this.cCategory.Name = "cCategory";
+            this.cCategory.ReadOnly = true;
+            // 
+            // cPrice
+            // 
+            this.cPrice.HeaderText = "Цена";
+            this.cPrice.Name = "cPrice";
+            this.cPrice.ReadOnly = true;
             // 
             // InputForm
             // 
@@ -217,7 +296,7 @@
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSales)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -231,14 +310,22 @@
         private System.Windows.Forms.TextBox tbNote;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbCategory;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbPhone;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbNumber;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgSales;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox tbCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCreated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cHour;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cOwner;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNote;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cPrice;
     }
 }

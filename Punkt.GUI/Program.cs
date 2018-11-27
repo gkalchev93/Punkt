@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Punkt.GUI
@@ -13,9 +11,17 @@ namespace Punkt.GUI
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new LoginForm());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+
         }
     }
 }

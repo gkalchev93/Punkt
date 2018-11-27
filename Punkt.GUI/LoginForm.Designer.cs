@@ -94,6 +94,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Activated += new System.EventHandler(this.LoginForm_Activated);
             this.ResumeLayout(false);
             this.PerformLayout();
 

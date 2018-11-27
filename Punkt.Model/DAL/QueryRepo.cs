@@ -46,7 +46,7 @@
 
         #region Employee Queries
         public static string SelectEmployee = "Select * from Employees";
-        public static string SelectEmployeeWhere = "Select * from Employees Where {0} == {1}";
+        public static string SelectEmployeeWithName = "Select * from Employees WHERE Name == '{0}'";
         #endregion
 
         #region Sale Queries
@@ -56,6 +56,23 @@
 
         public static string SelectSale = @"Select * from Sales";
         public static string SelectSaleWhere = @"SELECT * FROM Sales WHERE {0}=={1}";
+
+        #endregion
+
+        #region Car Queries
+        public static string SelectNumbers = "SELECT NumberPlate FROM Cars;";
+        public static string SelectCarWithNum = "SELECT * FROM Cars WHERE NumberPlate == \"{0}\"";
+        public static string SelectCarWithId = "SELECT * FROM Cars WHERE Id == {0}";
+
+        public static string CreateCar = @"INSERT INTO `Cars`(`CreatedOn`,`NumberPlate`,`Category`,`OwnerId`)
+                                            VALUES(@CreatedOn,@NumberPlate,@Category,@OwnerId)";
+        #endregion
+
+        #region Owner Queries
+        public static string SelectOwnerWithId = "Select * FROM Owners Where Id={0}";
+
+        public static string CreateOwner = @"INSERT INTO `Owners`(`CreatedOn`,`FirstName`,`LastName`,`Telephone`)
+                                            VALUES(@CreatedOn,@FirstName,@LastName,@Telephone)";
         #endregion
     }
 }
