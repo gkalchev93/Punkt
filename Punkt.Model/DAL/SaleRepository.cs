@@ -154,6 +154,34 @@ namespace Punkt.Model.DAL
 
         }
 
+        public List<Sale> GetSalesWhere(string column, string exp)
+        {
+            var retCollection = new List<Sale>();
+
+            if (_notConnected)
+                m_dbConnection.Open();
+
+            var cmd = new SQLiteCommand(string.Format(QueryRepo.SelectSaleWhere, column, exp), m_dbConnection);
+
+            using (var dataReader = cmd.ExecuteReader())
+            {
+                while (dataReader.Read())
+                {
+                    var sale = new Sale();
+                    GetBaseEntityProperties(dataReader, sale);
+                    sale.Note = dataReader["Note"].ToString();
+                    sale.Price = Decimal.Parse(dataReader["Price"].ToString());
+                    sale.CreatedBy = int.Parse(dataReader["CreatedBy"].ToString());
+                    sale.CarId = int.Parse(dataReader["CarId"].ToString());
+                    sale.Car = GetCarById(sale.CarId, false);
+                    retCollection.Add(sale);
+                }
+            }
+            m_dbConnection.Close();
+
+            return retCollection;
+        }
+
         public List<Sale> GetSales()
         {
             var retCollection = new List<Sale>();
@@ -215,7 +243,7 @@ namespace Punkt.Model.DAL
                     retObj.NumberPlate = dataReader["NumberPlate"].ToString();
                     retObj.Category = dataReader["Category"].ToString();
                     retObj.OwnerId = (int.Parse(dataReader["OwnerId"].ToString()));
-                    retObj.Owner = GetOwnerById(retObj.OwnerId, true);
+                    retObj.Owner = GetOwnerById(retObj.OwnerId, false);
                 }
             }
 

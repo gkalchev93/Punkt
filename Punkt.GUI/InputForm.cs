@@ -41,7 +41,7 @@ namespace Punkt.GUI
 
         private void RefreshGrid()
         {
-            salesList = saleRepo.GetSales();
+            salesList = saleRepo.GetSalesWhere("date(CreatedOn)", "date('now')");
             dgSales.Rows.Clear();
 
             foreach (var s in salesList)

@@ -45,11 +45,14 @@
         #endregion
 
         #region Employee Queries
+
         public static string SelectEmployee = "Select * from Employees";
         public static string SelectEmployeeWithName = "Select * from Employees WHERE Name == '{0}'";
+
         #endregion
 
         #region Sale Queries
+
         public static string UpdateSale = "";
         public static string CreateSale = @"INSERT INTO `Sales`(`CreatedOn`,`Note`,`Price`,`CreatedBy`,`CarId`)
                                             VALUES(@CreatedOn,@Note,@Price,@CreatedBy,@CarId)";
@@ -60,17 +63,17 @@
         #endregion
 
         #region Car Queries
+
         public static string SelectNumbers = "SELECT NumberPlate FROM Cars;";
         public static string SelectCarWithNum = "SELECT * FROM Cars WHERE NumberPlate == \"{0}\"";
         public static string SelectCarWithId = "SELECT * FROM Cars WHERE Id == {0}";
-
         public static string CreateCar = @"INSERT INTO `Cars`(`CreatedOn`,`NumberPlate`,`Category`,`OwnerId`)
                                             VALUES(@CreatedOn,@NumberPlate,@Category,@OwnerId)";
         #endregion
 
         #region Owner Queries
-        public static string SelectOwnerWithId = "Select * FROM Owners Where Id={0}";
 
+        public static string SelectOwnerWithId = "Select * FROM Owners Where Id={0}";
         public static string CreateOwner = @"INSERT INTO `Owners`(`CreatedOn`,`FirstName`,`LastName`,`Telephone`)
                                             VALUES(@CreatedOn,@FirstName,@LastName,@Telephone)";
         #endregion
