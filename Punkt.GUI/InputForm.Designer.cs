@@ -86,8 +86,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgSales);
-            this.splitContainer1.Size = new System.Drawing.Size(1124, 728);
-            this.splitContainer1.SplitterDistance = 382;
+            this.splitContainer1.Size = new System.Drawing.Size(1142, 773);
+            this.splitContainer1.SplitterDistance = 388;
             this.splitContainer1.TabIndex = 0;
             // 
             // tbCategory
@@ -272,7 +272,7 @@
             this.dgSales.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgSales.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dgSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSales.Size = new System.Drawing.Size(738, 728);
+            this.dgSales.Size = new System.Drawing.Size(750, 773);
             this.dgSales.TabIndex = 0;
             // 
             // cCreated
@@ -335,10 +335,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1124, 728);
+            this.ClientSize = new System.Drawing.Size(1142, 773);
             this.Controls.Add(this.splitContainer1);
             this.Name = "InputForm";
             this.Text = "InputForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

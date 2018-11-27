@@ -26,7 +26,6 @@ namespace Punkt.GUI
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-
         }
 
         private void GetSuggestions()
@@ -82,7 +81,6 @@ namespace Punkt.GUI
             {
                 MessageBox.Show(ex.Message, "Error");
             }
-
         }
 
         private void ClearGui()
